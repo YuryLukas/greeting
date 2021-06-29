@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <title>Persons</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>form Person</h1>
+<form id="person" >
+<label> Firstname: </label>
+<input name="firstname" ><br />
+<label>Lastname: </label>
+<input name="lastname" ><br />
+</form>
+
+<button id="saveperson">Save</button>
+
+<script>
+$("#saveperson").click(function(){
+    var dataString = $("#person").serialize();
+    $.post("http://localhost:8080/person",
+  dataString,
+  function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+})
+</script>
+
+    </body>
+</html>
